@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8l115gen1c3h"]
+
+[ext_resource type="Script" uid="uid://u4f66dxia5iy" path="res://level.gd" id="1_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://b6lvmtdx50xdm" path="res://player.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://c0dn51oirnlu8" path="res://ball.tscn" id="2_vonw3"]
+[ext_resource type="Script" uid="uid://dhxsh0at3ika2" path="res://oponente.gd" id="3_oi3di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xgho"]
+size = Vector2(1920, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
+size = Vector2(50, 1080)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_0b4ue")
+
+[node name="ParedSuperior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedSuperior"]
+position = Vector2(960, -25)
+shape = SubResource("RectangleShape2D_5xgho")
+
+[node name="ParedInferior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedInferior"]
+position = Vector2(960, 1105)
+shape = SubResource("RectangleShape2D_5xgho")
+
+[node name="ArcoPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoPlayer"]
+position = Vector2(-25, 540)
+shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="ArcoOponente" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoOponente"]
+position = Vector2(1945, 540)
+shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="Player" parent="." instance=ExtResource("1_u52ul")]
+position = Vector2(50, 460)
+
+[node name="Ball" parent="." instance=ExtResource("2_vonw3")]
+position = Vector2(967, 536)
+
+[node name="Marcador" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.47000003, 1, 0.9293334, 1)
+theme_override_font_sizes/font_size = 40
+text = "MarcadorPlayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Oponente" parent="." instance=ExtResource("1_u52ul")]
+position = Vector2(1860, 460)
+script = ExtResource("3_oi3di")
+
+[node name="RestartTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ArcoPlayer" to="." method="_on_arco_player_body_entered"]
+[connection signal="body_entered" from="ArcoOponente" to="." method="_on_arco_oponente_body_entered"]
+[connection signal="timeout" from="RestartTimer" to="Ball" method="_on_restart_timer_timeout"]

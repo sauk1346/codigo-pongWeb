@@ -1,0 +1,43 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Archivos de exportación (builds)
+*.exe
+*.pck
+*.zip
+*.html
+*.js
+*.wasm
+*.png.import
+*.mp3.import
+*.svg.import
+*.apple-touch-icon.png
+*.icon.png
+*.audio.worklet.js
+*.audio.position.worklet.js
+
+# Directorios de build/dist
+dist/
+build/
+exports/
+
+# Configuración de exportación (puede contener rutas absolutas locales)
+# Descomenta si no quieres compartir tu configuración de exportación
+# export_presets.cfg
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs y temporales
+*.log
+*.tmp
+*~
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
