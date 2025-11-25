@@ -1,4 +1,4 @@
-# Platzi Pong
+# PongWeb
 
 Un clásico juego de Pong desarrollado en Godot 4 con fines educativos.
 
@@ -34,6 +34,12 @@ Este proyecto es una implementación del clásico juego Pong, creado como materi
 └── project.godot     # Configuración del proyecto
 ```
 
+## Proyecto Desplegado
+
+Puedes jugar la versión en línea del juego sin necesidad de descargar nada:
+
+🎮 **[Jugar ahora en el navegador](https://sauk1346.github.io/pongWeb/)**
+
 ## Cómo Jugar
 
 1. Abre el proyecto en Godot Engine 4.5+
@@ -61,7 +67,3 @@ Este proyecto demuestra conceptos fundamentales de desarrollo de videojuegos:
 - **IA simple**: Comportamiento del oponente
 - **Gestión de escenas**: Organización de nodos y escenas en Godot
 - **Programación en GDScript**: Sintaxis y estructuras básicas
-
-## Créditos
-
-Desarrollado como proyecto educativo para aprender Godot Engine.
